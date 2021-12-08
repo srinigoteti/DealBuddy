@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Deal Buddy</title>
+
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/style.css" rel="stylesheet">
+
+  </head>
+  <body>
+
+    <div class="container-fluid">
+		<br>
+		<br>
+		<br>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-4">
+					<a href="/" class="btn btn-primary" type="button">Home</a>				
+					<br>
+					<br>
+					
+					<table class="table">
+						<thead>
+						</thead>
+						<tbody>
+							<tr class="table-active">
+								<th> Customer </th>
+								<td> {{ Customer }} </td>
+							</tr>
+							<tr class="table-active">
+								<th> DocumentName </th>
+								<td> {{ DocumentName }} </td>
+							</tr>
+							<tr class="table-active">
+								<th> QuoteType </th>
+								<td> {{ QuoteType }} </td>
+							</tr>
+							<tr class="table-active">
+								<th> QuoteNumber </th>
+								<td> {{ QuoteNumber }} </td>
+							</tr>
+							<tr class="table-active">
+								<th> OpportunityID </th>
+								<td> {{ OpportunityID }} </td>
+							</tr>
+							<tr class="table-active">
+								<th> EnrollmentNumber </th>
+								<td> {{ EnrollmentNumber }} </td>
+							</tr>
+							<tr class="table-active">
+								<th> TermOfAgreement </th>
+								<td> {{ TermOfAgreement }} </td>
+							</tr>
+							<tr class="table-active">
+								<th> CreationDate </th>
+								<td> {{ CreationDate }} </td>
+							</tr>
+							<tr class="table-active">
+								<th> EffectiveDuration </th>
+								<td> {{ EffectiveDuration }} </td>
+							</tr>
+							<tr class="table-active">
+								<th> PaymentSchedule </th>
+								<td> {{ PaymentSchedule }} </td>
+							</tr>
+							<tr class="table-active">
+								<th> Language </th>
+								<td> {{ Language }} </td>
+							</tr>
+							<tr class="table-active">
+								<th> PriceListMonth </th>
+								<td> {{ PriceListMonth }} </td>
+							</tr>
+							<tr class="table-active">
+								<th> BillingCurrency </th>
+								<td> {{ BillingCurrency }} </td>
+							</tr>
+							<tr class="table-active">
+								<th> CustomerCountry </th>
+								<td> {{ CustomerCountry }} </td>
+							</tr>
+							<tr class="table-active">
+								<th> PageCount </th>
+								<td> {{ PageCount }} </td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="col-md-8">
+					<ul class="nav nav-pills">
+						<li class="nav-item">
+							 <a class="nav-link btn btn-primary" href="#">Validations Completed <span class="badge badge-light">3</span></a>
+						</li>
+					<!--
+						<li class="nav-item">
+							 <a class="nav-link" href="#">Pending <span class="badge badge-secondary">13</span></a>
+						</li>
+					-->
+					</ul>
+					<br>
+					
+					<table class="table">
+						<thead>
+						</thead>
+						<tbody>
+
+							                            
+                            {% if cps01 in greentick %}
+                            <tr class="table-success">
+                            {% else %}
+                            <tr class="table-danger">
+                            {% endif %}
+                                <th> {{cps01}} </th>
+                                <th> CPS-01 </th>
+                                <td> CPS completeness - Are all pages included? </td>
+                            </tr>
+
+
+                            {% if cps05 in greentick %}
+                            <tr class="table-success">
+                            {% else %}
+                            <tr class="table-danger">
+                            {% endif %}
+								<th> {{cps05}} </th>
+								<th> CPS-Q5 </th>
+								<td> Consistency of page numbers across the front page and all footers on bottom-right corner. </td>
+							</tr>
+
+
+                            {% if cps27 in greentick %}
+                            <tr class="table-success">
+                            {% else %}
+                            <tr class="table-danger">
+                            {% endif %}
+								<th> {{cps27}} </th>
+								<th> CPS-27 </th>
+								<td> Consistency of quote number and customer name across the front page and all headers on top-right corner.  </td>
+							</tr>
+
+							{% if cps27 not in greentick %}
+                            <tr class="table-success">
+                            {% else %}
+                            <tr class="table-danger">
+                            {% endif %}
+								<th> &#x274C </th>
+								<th> CPS-XX </th>
+								<td> Testing </td>
+							</tr>
+
+						</tbody>
+					</table> 
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
